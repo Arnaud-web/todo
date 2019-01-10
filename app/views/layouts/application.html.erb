@@ -4,12 +4,43 @@
     <title>Todo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+
+
+    <div class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar navbar-header">
+          <a href="<%= root_path %>" class ="navbar-brand" > Todo</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="<%= new_user_path %>">S'inscrire</a></li>
+          <li><a href="<%= new_session_path %>">Se connecter</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <% if flash[:success] %>
+      <div class="alert alert-success">
+        <%= flash[:success] %>
+      </div>
+      <% end %>
+
+       <% if flash[:danger] %>
+      <div class="alert alert-danger">
+        <%= flash[:danger] %>
+      </div>
+      <% end %>
+
+
+      <%= yield %>
+    </div>
+
   </body>
 </html>
