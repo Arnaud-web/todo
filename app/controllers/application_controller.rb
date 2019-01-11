@@ -17,6 +17,13 @@ class ApplicationController < ActionController::Base
 	end
 	end
 
+
+
+	def only_signed_out
+		
+		redirect_to profil_path if user_signed_in?
+	end
+
 	def user_signed_in?
 		!current_user.nil?
 		@val = true

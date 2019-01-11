@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+	attr_accessor :avatar_file
+
 	has_secure_password
 	has_secure_token :confirmation_token
 
@@ -10,6 +12,9 @@ class User < ApplicationRecord
 	validates :email,
 	format: {with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/},
 	uniqueness: {case_sensitive: false}
+
+
+	validates :avatar_file, file: {ext: [:jpg, :png]}
 
 	def to_session
 	

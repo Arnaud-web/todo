@@ -24,9 +24,31 @@
 		<%= form_for @user,url: profil_path , html:{class: 'form-horizontal' } do |f| %>
 
 		<div class="form-group">
-			<%= f.label "Nom d'utilisateur", class: 'col-md-4 control-label'%>
+			<%= f.label :avatar, "Avatar", class: 'col-md-4 control-label'%>
+			<div >
+				<%= f.file_field :avatar_file, class: ' form-horizontal' %>
+			</div>
+		</div>
+
+
+
+		<div class="form-group">
+			<%= f.label :username, "Nom d'utilisateur", class: 'col-md-4 control-label'%>
 			<div >
 				<%= f.text_field :username, class: ' form-horizontal' %>
+			</div>
+		</div> 
+		<div class="form-group">
+			<%= f.label :firstname, "Prénom", class: 'col-md-4 control-label'%>
+			<div >
+				<%= f.text_field :firstname, class: ' form-horizontal' %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<%= f.label :lastname, "Nom", class: 'col-md-4 control-label'%>
+			<div >
+				<%= f.text_field :lastname, class: ' form-horizontal' %>
 			</div>
 		</div>
 		
@@ -37,20 +59,7 @@
 			</div>
 		</div>
 
-		<div class="form-group">
-			<%= f.label "Mot de Password", class: 'col-md-4 control-label'%>
-			<div >
-				<%= f.password_field :password, class: ' form-horizontal' %>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<%= f.label "Confirmer le mot de Password", class: 'col-md-4 control-label'%>
-			<div >
-				<%= f.password_field :password_confirmation, class: 'form-horizontal' %>
-			</div>
-		</div>
-
+		
 		<div class="form-group">
 			<div class="col-md-offset-4 col-md-4 ">
 				<button type="submit" class="btn btn-primary"> S'inscrire</button>
