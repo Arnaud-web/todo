@@ -4,6 +4,8 @@ class User < ApplicationRecord
 
 	has_secure_password
 	has_secure_token :confirmation_token
+	has_secure_token :recover_password
+
 
 	after_save :avatar_after_upload
 	after_destroy_commit :avatar_destroy
